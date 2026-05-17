@@ -24,7 +24,7 @@ export enum Agent {
   ANALYST = 'agent-6-analyst',
   OPTIMIZER = 'agent-7-optimizer',
   OPERATOR = 'agent-8-operator',
-  DATA_SCIENTIST = 'agent-9-analyst',
+  DATA_SCIENTIST = 'agent-9-data-scientist',
   MARKETER = 'agent-10-marketer',
   IP_DEVELOPER = 'agent-11-ip-developer',
 }
@@ -43,7 +43,11 @@ export enum Skill {
   IP_PLANNER = 'ip-planner',       // IP策划师
 }
 
-/** M-Layer identifiers for the Ten Layers universe system */
+/** M-Layer identifiers for the Ten Layers universe system
+ * 
+ * 💡 使用频率：L6（心智意识层）和 L7（社会文明层）最常用，约90%的网文只需要这两层。
+ * L0-L5 为物理/基础层（极少直接使用），L8-L9 为高阶规则层（高维/本源，仅在大后期使用）。
+ * ⚠️ 永远不超过 3 个 M 层。 */
 export enum MLayer {
   L0 = 'L0', // 虚无层
   L1 = 'L1', // 混沌层
