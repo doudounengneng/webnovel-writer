@@ -138,6 +138,8 @@ export async function runPipeline(
       console.log(`  Content: ${chars} chars / ${lines} lines`);
     }
 
+    await engine.transitionToNextStage();
+
     if (stage >= stopAt) break;
   }
 
