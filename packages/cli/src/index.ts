@@ -6,6 +6,7 @@ import { createCommand } from './commands/create';
 import { stageCommand } from './commands/stage';
 import { statusCommand } from './commands/status';
 import { agentCommand } from './commands/agent';
+import { runCommand } from './commands/run';
 import { version } from '../package.json';
 
 const program = new Command();
@@ -50,5 +51,17 @@ program
   .option('-a, --agent <id>', 'Agent ID')
   .option('-t, --task <description>', 'Task description for the agent')
   .action(agentCommand);
+
+program
+  .command('run')
+  .description('Run the full creation pipeline from seed to chapter')
+  .argument('[task]', 'Creative seed/task (e.g. "穿越洪荒世界，主角被阐教驱逐")')
+  .option('--provider <provider>', 'LLM provider: openai or mock', 'mock')
+  .option('--model <model>', 'Model name (default: gpt-4o for openai)')
+  .option('--api-key <key>', 'API key (or set OPENAI_API_KEY env var)')
+  .option('--base-url <url>', 'Custom API base URL')
+  .option('--stop-at <stage>', 'Stop at stage (0-7, default: 5)', '5')
+  .option('-v, --verbose', 'Verbose output')
+  .action(runCommand);
 
 program.parse(process.argv);

@@ -1,4 +1,4 @@
-import { Stage, Skill, type StageConfig, type WorkflowConfig } from '../types';
+import { Stage, Skill, Agent, type StageConfig, type WorkflowConfig } from '../types';
 
 // ============================================================
 // Stage Definitions
@@ -9,6 +9,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_0,
     name: '灵感激活',
     leadSkill: Skill.TEN_LAYERS,
+    agentId: Agent.PLANNER,
     qualityGates: [
       'M层≤3',
       '五维定义完整',
@@ -21,6 +22,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_1,
     name: '灵魂激活',
     leadSkill: Skill.MO_BAI,
+    agentId: Agent.EDITOR,
     qualityGates: [
       '欲望明确',
       '金手指确定',
@@ -33,6 +35,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_2,
     name: '骨架激活',
     leadSkill: Skill.TEN_LAYERS,
+    agentId: Agent.PLANNER,
     qualityGates: [
       '五维完整',
       '命运标签完整',
@@ -44,6 +47,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_3,
     name: '骨架搭建',
     leadSkill: Skill.CREATOR_GOD,
+    agentId: Agent.ARCHITECT,
     qualityGates: [
       '世界观闭环',
       '三线并行（主线/暗线/秘线）',
@@ -55,6 +59,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_4,
     name: '灵魂灌注',
     leadSkill: Skill.MO_BAI,
+    agentId: Agent.EDITOR,
     qualityGates: [
       '主角立体（欲望/弧光/锚点）',
       '配角独立动机',
@@ -67,6 +72,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_5,
     name: '正文输出',
     leadSkill: Skill.NOVEL_MASTER,
+    agentId: Agent.WRITER,
     qualityGates: [
       '爽点即时兑现',
       '章末有钩子',
@@ -80,6 +86,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_6,
     name: '灵魂校对',
     leadSkill: Skill.MO_BAI,
+    agentId: Agent.EDITOR,
     qualityGates: [
       '情感温度达标',
       '对话真实自然',
@@ -92,6 +99,7 @@ const stageDefinitions: StageConfig[] = [
     stage: Stage.STAGE_7,
     name: '定稿交付',
     leadSkill: Skill.NOVEL_MASTER,
+    agentId: Agent.WRITER,
     qualityGates: [
       '无错别字',
       '无语病',

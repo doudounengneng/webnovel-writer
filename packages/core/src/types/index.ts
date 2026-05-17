@@ -154,6 +154,7 @@ export interface StageConfig {
   stage: Stage;
   name: string;
   leadSkill: Skill;
+  agentId: Agent;
   qualityGates: string[];
   nextStage: Stage | null;
 }

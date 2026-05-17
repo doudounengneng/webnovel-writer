@@ -137,7 +137,7 @@ enum Agent {
   ANALYST = 'agent-6-analyst',
   OPTIMIZER = 'agent-7-optimizer',
   OPERATOR = 'agent-8-operator',
-  DATA_SCIENTIST = 'agent-9-analyst',
+  DATA_SCIENTIST = 'agent-9-data-scientist',
   MARKETER = 'agent-10-marketer',
   IP_DEVELOPER = 'agent-11-ip-developer',
 }
