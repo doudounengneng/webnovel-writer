@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+import { Command } from 'commander';
+import { initCommand } from './commands/init';
+import { createCommand } from './commands/create';
+import { stageCommand } from './commands/stage';
+import { statusCommand } from './commands/status';
+import { agentCommand } from './commands/agent';
+import { version } from '../package.json';
+
+const program = new Command();
+
+program
+  .name('webnovel')
+  .description('Webnovel-Writer CLI — Multi-agent collaborative web novel creation system')
+  .version(version);
+
+program
+  .command('init')
+  .description('Initialize a new Webnovel-Writer project')
+  .argument('[name]', 'Project name')
+  .option('-d, --dir <path>', 'Project directory', '.')
+  .action(initCommand);
+
+program
+  .command('create')
+  .description('Create a new web novel from scratch')
+  .argument('<title>', 'Novel title')
+  .option('--genre <genre>', 'Novel genre')
+  .option('--world <type>', 'World type (e.g., xianxia, fantasy, sci-fi)')
+  .action(createCommand);
+
+program
+  .command('stage')
+  .description('Manage workflow stages')
+  .argument('<action>', 'Action: list, run, next, status')
+  .option('-s, --stage <stage>', 'Stage identifier')
+  .action(stageCommand);
+
+program
+  .command('status')
+  .description('Show current project status')
+  .option('-v, --verbose', 'Show detailed information')
+  .action(statusCommand);
+
+program
+  .command('agent')
+  .description('List and manage AI agents')
+  .argument('[action]', 'Action: list, info, call')
+  .option('-a, --agent <id>', 'Agent ID')
+  .option('-t, --task <description>', 'Task description for the agent')
+  .action(agentCommand);
+
+program.parse(process.argv);

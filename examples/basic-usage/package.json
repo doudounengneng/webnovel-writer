@@ -1,0 +1,16 @@
+{
+  "name": "webnovel-writer-basic-usage",
+  "version": "0.1.0",
+  "description": "Basic usage example for Webnovel-Writer",
+  "private": true,
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {
+    "@webnovel-writer/core": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.0"
+  }
+}
