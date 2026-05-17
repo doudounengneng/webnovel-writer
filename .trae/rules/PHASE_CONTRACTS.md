@@ -1,6 +1,8 @@
 # 阶段契约定义
 
 > 参考vibewriting的contracts机制，为每个阶段定义显性的输出契约
+>
+> 📌 质量门规范源：[QUALITY_GATES.md](./QUALITY_GATES.md)；阶段定义规范源：[创世/SKILL.md](../skills/创世/SKILL.md)
 
 ---
 

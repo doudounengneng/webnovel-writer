@@ -1,6 +1,8 @@
 # 多智能体实战方案
 
-> 将7个Skill分配给多个智能体，像一家公司一样协同创作
+> 将11个Skill分配给多个智能体，像一家公司一样协同创作
+>
+> 📌 Agent/部门注册表的规范源：[DEPARTMENT_REGISTRY.md](./DEPARTMENT_REGISTRY.md)；TypeScript 定义：[packages/core/src/agents/index.ts](../../packages/core/src/agents/index.ts)
 
 ---
 

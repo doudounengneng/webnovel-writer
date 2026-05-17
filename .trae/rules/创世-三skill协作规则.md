@@ -1,6 +1,8 @@
 # 创世-三Skill协作规则
 
 > "你给一个灵感，它给你一个宇宙"
+>
+> 📌 阶段体系的规范源：[创世/SKILL.md](../skills/创世/SKILL.md)；质量检查规范源：[QUALITY_GATES.md](./QUALITY_GATES.md)；TypeScript 阶段定义：[packages/core/src/stages/index.ts](../../packages/core/src/stages/index.ts)
 
 ---
 

@@ -1,6 +1,8 @@
 # Webnovel-Writer Trae Skill Package
 
 > Import this package into Trae IDE to unlock 11 specialized AI agents for web novel creation.
+>
+> 📌 Agent/部门注册表的规范源：[rules/DEPARTMENT_REGISTRY.md](./rules/DEPARTMENT_REGISTRY.md)
 
 ## Installation
 

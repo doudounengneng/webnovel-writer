@@ -1,6 +1,6 @@
 # 断点续跑机制
 
-> 参考vibewriting的checkpoint机制，为十层×三Skill体系建立完整的断点续跑系统
+> 📐 本文档属于**工程运维文档**（非创作指导），描述 session 管理/备份恢复的文件级操作流程。创作判断标准见 [QUALITY_GATES.md](./QUALITY_GATES.md)。
 
 ---
 
