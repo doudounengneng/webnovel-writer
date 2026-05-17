@@ -7,6 +7,8 @@ import { stageCommand } from './commands/stage';
 import { statusCommand } from './commands/status';
 import { agentCommand } from './commands/agent';
 import { runCommand } from './commands/run';
+import { quickstartCommand } from './commands/quickstart';
+import { estimateCommand } from './commands/estimate';
 import { version } from '../package.json';
 
 const program = new Command();
@@ -63,5 +65,21 @@ program
   .option('--stop-at <stage>', 'Stop at stage (0-7, default: 5)', '5')
   .option('-v, --verbose', 'Verbose output')
   .action(runCommand);
+
+program
+  .command('quickstart')
+  .description('5-minute quickstart — run full pipeline with mock (no API key needed)')
+  .argument('[seed]', 'Optional creative seed (random if not provided)')
+  .option('-d, --dir <path>', 'Project directory', '.')
+  .action(quickstartCommand);
+
+program
+  .command('estimate')
+  .description('Estimate token cost for different pipeline configurations')
+  .option('-c, --chapters <count>', 'Total chapters to estimate for (default: 500)', '500')
+  .option('-d, --depth <mode>', 'Pipeline depth: full or incremental', 'full')
+  .option('-m, --model <model>', 'Filter by model (gpt-4o, gpt-4o-mini, o3-mini)')
+  .option('-o, --output <path>', 'Save estimate to a markdown file')
+  .action(estimateCommand);
 
 program.parse(process.argv);

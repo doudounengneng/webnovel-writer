@@ -114,5 +114,5 @@ ${context.qualityGates.map(g => `- [ ] ${g}`).join('\n')}`;
 }
 
 export function buildUserPrompt(context: AgentCallContext): string {
-  return `${context.task}`;
+  return `[Stage: ${context.stage}] ${context.task}`;
 }
