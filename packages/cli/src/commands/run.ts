@@ -1,6 +1,7 @@
 import { Stage } from '@webnovel-writer/core';
 import {
   createLLMAdapter,
+  createLLMAdapterFromEnv,
   runPipeline,
 } from '@webnovel-writer/core';
 import {
@@ -25,12 +26,12 @@ export async function runCommand(
     dir?: string;
     resume?: boolean;
     refresh?: boolean;
+    'use-env'?: boolean;
   },
 ): Promise<void> {
   const projectDir = options.dir || process.cwd();
   const webnovelDir = path.join(projectDir, '.webnovel');
 
-  // 1. Determine pipeline mode
   let startAt = Stage.STAGE_0;
   let stopAt = Stage.STAGE_5;
   const displayTask = task || '(resume)';
@@ -60,29 +61,29 @@ export async function runCommand(
     }
   }
 
-  // 2. Initialize or load project
   const engine = new WorkflowEngine((task || 'resume').slice(0, 50));
-  const active = options.resume || options.refresh
-    ? resumeProject(engine, webnovelDir)
-    : (() => { resumeProject(engine, webnovelDir); return engine; })();
+  const active = resumeProject(engine, webnovelDir);
 
-  // 3. Configure LLM adapter
-  const provider = (options.provider || process.env.LLM_PROVIDER || 'mock') as 'openai' | 'mock';
-  const apiKey = options['api-key'] || process.env.OPENAI_API_KEY || process.env.ANTHROPIC_API_KEY || 'mock-key';
+  const adapter = options['use-env']
+    ? createLLMAdapterFromEnv()
+    : (() => {
+        const provider = (options.provider || 'mock') as 'openai' | 'anthropic' | 'mock';
+        const apiKey = options['api-key'] || '';
 
-  if (provider === 'openai' && apiKey === 'mock-key') {
-    console.error('Error: OPENAI_API_KEY not set. Use --api-key or set the environment variable.');
-    process.exit(1);
-  }
+        if (provider !== 'mock' && !apiKey) {
+          console.error(`Error: API key required for provider "${provider}". Use --api-key or set --use-env.`);
+          process.exit(1);
+        }
 
-  const adapter = createLLMAdapter({
-    provider,
-    apiKey,
-    model: options.model,
-    baseURL: options['base-url'],
-    temperature: 0.7,
-    maxTokens: 4096,
-  });
+        return createLLMAdapter({
+          provider,
+          apiKey,
+          model: options.model,
+          baseURL: options['base-url'],
+          temperature: 0.7,
+          maxTokens: 4096,
+        });
+      })();
 
   const modeLabel = options.resume ? '增量' : options.refresh ? '刷新' : '完整';
 

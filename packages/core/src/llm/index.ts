@@ -1,7 +1,8 @@
 export { BaseLLMAdapter } from './base';
 export { OpenAIAdapter } from './openai';
+export { AnthropicAdapter } from './anthropic';
 export { MockAdapter } from './mock';
-export { createLLMAdapter } from './factory';
+export { createLLMAdapter, createLLMAdapterFromEnv } from './factory';
 export { buildAgentSystemPrompt, buildUserPrompt } from './agent-prompt';
 export { runAgentStage, runPipeline } from './agent-runner';
 export type {
