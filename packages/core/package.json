@@ -4,11 +4,39 @@
   "description": "Core engine of Webnovel-Writer: workflow management, multi-agent orchestration, stage transitions, and quality gates.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "webnovel",
+    "novel-writing",
+    "ai-writing",
+    "multi-agent",
+    "creative-writing",
+    "workflow",
+    "chinese-webnovel"
+  ],
+  "author": "doudounengneng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doudounengneng/webnovel-writer.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/doudounengneng/webnovel-writer#readme",
+  "bugs": {
+    "url": "https://github.com/doudounengneng/webnovel-writer/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "jest --config jest.config.js",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "zod": "^3.22.0"

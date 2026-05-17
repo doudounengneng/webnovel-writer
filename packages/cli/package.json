@@ -7,11 +7,38 @@
     "webnovel": "./dist/index.js",
     "wnw": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "webnovel",
+    "novel-writing",
+    "cli",
+    "ai-writing",
+    "multi-agent",
+    "creative-writing",
+    "chinese-webnovel"
+  ],
+  "author": "doudounengneng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doudounengneng/webnovel-writer.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/doudounengneng/webnovel-writer#readme",
+  "bugs": {
+    "url": "https://github.com/doudounengneng/webnovel-writer/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
     "test": "jest --config jest.config.js",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@webnovel-writer/core": "*",

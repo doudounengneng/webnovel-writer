@@ -1,0 +1,10 @@
+src/
+tsconfig.json
+*.tsbuildinfo
+node_modules/
+.trae/
+.github/
+docs/
+examples/
+*.md
+!README.md

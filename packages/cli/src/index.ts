@@ -63,6 +63,8 @@ program
   .option('--api-key <key>', 'API key (or set OPENAI_API_KEY env var)')
   .option('--base-url <url>', 'Custom API base URL')
   .option('--stop-at <stage>', 'Stop at stage (0-7, default: 5)', '5')
+  .option('--resume', 'Resume from last chapter (incremental, stage 5 only)')
+  .option('--refresh', 'Refresh world and characters, then write new chapter')
   .option('-v, --verbose', 'Verbose output')
   .action(runCommand);
 

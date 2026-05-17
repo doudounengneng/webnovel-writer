@@ -107,10 +107,12 @@ export async function runPipeline(
     maxRetries?: number;
     verbose?: boolean;
     stopAtStage?: Stage;
+    startAtStage?: Stage;
   },
 ): Promise<AgentResult[]> {
   const results: AgentResult[] = [];
   const stopAt = options?.stopAtStage ?? Stage.STAGE_5;
+  const startAt = options?.startAtStage ?? Stage.STAGE_0;
 
   const orderedStages: Stage[] = [
     Stage.STAGE_0, Stage.STAGE_1, Stage.STAGE_2, Stage.STAGE_3,
@@ -118,6 +120,7 @@ export async function runPipeline(
   ];
 
   for (const stage of orderedStages) {
+    if (stage < startAt) continue;
     if (stage > stopAt) break;
 
     const stageConfig = getStageConfig(stage);
