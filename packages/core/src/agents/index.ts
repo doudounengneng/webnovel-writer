@@ -9,7 +9,7 @@ const agentRegistry: AgentConfig[] = [
     id: Agent.CEO,
     name: 'CEO/总编',
     department: '总裁办',
-    skill: Skill.TEN_LAYERS,
+    skill: Skill.CREATOR_GOD,
     description: '接收指令，调度各部门，管理阶段流转，整合产出，交付成品',
   },
   {

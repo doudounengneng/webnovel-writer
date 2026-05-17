@@ -101,8 +101,7 @@ export class WorkflowEngine {
   }
 
   isWorkflowComplete(): boolean {
-    return this.state.currentStage === Stage.STAGE_7 &&
-      this.state.completedStages.includes(Stage.STAGE_7);
+    return this.state.currentStage === Stage.STAGE_7;
   }
 
   shouldPause(): boolean {
